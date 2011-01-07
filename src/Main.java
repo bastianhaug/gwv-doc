@@ -10,3 +10,4 @@ public class Main {
 	}
 
 }
+stephan riecht streng
