@@ -33,9 +33,9 @@ public class Main {
 			
 			// ToDo : Bei unbekannter Antwort, Frage erneut stellen.
 			
-			// ToDo : Antworten an BayesCalc übergeben.
+			
 		}
-		System.out.println(_questionaire.toString());
+		// ToDo : Antworten an BayesCalc übergeben.
 	}
 
 }
