@@ -10,7 +10,10 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
 		for (Question question : _questionaire.get_questionaire()) {
+			ASKAGAIN:
+			{
 			System.out.println(question.get_question() + " (ja/nein)");
 			
 			String eingabezeile = "";
@@ -30,12 +33,18 @@ public class Main {
 				question.set_answer(true);
 			if (eingabezeile.equals(no))
 				question.set_answer(false);
-			
-			// ToDo : Bei unbekannter Antwort, Frage erneut stellen.
-			
+			if (!eingabezeile.equals(yes) && !eingabezeile.equals(no)) {
+				System.out.println("falsch");
+				break ASKAGAIN;
+			}
+			}
 			
 		}
+
 		// ToDo : Antworten an BayesCalc übergeben.
+		Bayescalc calculator = new Bayescalc(_questionaire);
+		System.out.println("Sie haben mit einer Wahrscheinlichkeit von " +
+				calculator.get_influenza() + " eine Influenza-Erkrankung");
 	}
 
 }
