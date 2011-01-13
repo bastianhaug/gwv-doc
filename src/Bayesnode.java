@@ -12,7 +12,7 @@ public class Bayesnode
 	private double prop_boundSingle_false = 0;
 	private List<Propability> prop_boundDouble = new ArrayList<Propability>();
 	
-	private TreeSet<Bayesnode> fatherNode = new TreeSet<Bayesnode>();
+	private List<Bayesnode> fatherNode = new ArrayList<Bayesnode>();
 	
 
 	/**
@@ -45,7 +45,7 @@ public class Bayesnode
 	
 	public Bayesnode (Bayesnode father1, Bayesnode father2)
 	{
-		fatherNode.add(father2);
+		fatherNode.add(father1);
 		fatherNode.add(father2);
 	}
 	
@@ -109,7 +109,7 @@ public class Bayesnode
 	 * Gibt eine Liste von VäterKnoten zurück, von Welchen der Knoten abhängig ist.
 	 * @return 
 	 */
-	public TreeSet<Bayesnode> getFatherNode()
+	public List<Bayesnode> getFatherNode()
 	{
 		return fatherNode;
 	}

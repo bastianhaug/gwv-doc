@@ -22,7 +22,7 @@ public class Bayescalc
 	}
 	
 	/**
-	 * Gibt die Wahrscheinlich einer Influenza-Erkrankung zurück.
+	 * Ruft die Berechnungsfunktion auf und gibt die Wahrscheinlich zurück.
 	 * 
 	 * @return double
 	 */

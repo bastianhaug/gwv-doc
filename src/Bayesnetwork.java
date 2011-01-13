@@ -45,10 +45,6 @@ public class Bayesnetwork
 		
 		wheezing = new Bayesnode(bronchitis,0.6);
 		wheezing.setProp_false(0.001);
-		
-		
-		
-		
 	}
 
 
