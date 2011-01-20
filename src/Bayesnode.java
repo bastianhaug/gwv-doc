@@ -100,6 +100,7 @@ public class Bayesnode
 	{
 			this.prop_boundSingle = prop_boundSingle;
 	}
+	
 	public double getProp_boundSingle()
 	{
 			return prop_boundSingle;

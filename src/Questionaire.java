@@ -33,4 +33,35 @@ public class Questionaire {
 	public ArrayList<Question> get_questionaire() {
 		return this._questionaire;
 	}
+	
+	/**
+	 * Gibt zurück, ob der Fragebogen vollständig beantwortet wurde.
+	 * 
+	 * @return boolean
+	 */
+	public boolean is_answered() {
+		for (Question question : this.get_questionaire()) {
+			if (!question.is_answered()) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * Gibt die Frage mit dem entsprechenden Namen zurück.
+	 * 
+	 * @param name String
+	 * @return Question
+	 */
+	public Question get_question(String name) {
+		for (Question question : this.get_questionaire()) {
+			if (question.get_name().equals(name)) {
+				return question;
+			}
+		}
+		
+		return null;
+	}
 }

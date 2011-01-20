@@ -10,7 +10,7 @@ public class Question {
 	private String _name;
 	private String _question;
 	private boolean _answer;
-	private boolean _answered;
+	private boolean _answered = false;
 	
 	public Question(String name, String question, boolean answer) {
 		this._name = name;
@@ -34,7 +34,7 @@ public class Question {
 		this._question = _question;
 	}
 
-	public boolean is_answer() {
+	public boolean get_answer() {
 		return _answer;
 	}
 

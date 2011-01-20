@@ -15,7 +15,8 @@ public class Main {
 		for (Question question : _questionaire.get_questionaire()) {
 
 			// Frage wird gestellt
-			System.out.println(question.get_question() + " (ja/nein)");
+			System.out.println(question.get_question() + " (ja/nein) Falls Sie die Frage nicht beantworten können," +
+					"bestätigen Sie bitte nur mit der Eingabetaste.");
 			
 			// Eingabe wird eingelesen
 			String eingabezeile = "";
@@ -30,18 +31,14 @@ public class Main {
 	        // Eingabeüberprüfung ob "ja" oder "nein"
 			String yes = "ja";
 			String no = "nein";	
-			if (eingabezeile.equals(yes))
+			if (eingabezeile.equals(yes)) {
 				question.set_answer(true);
 				question.set_answered(true);
+			}
 			if (eingabezeile.equals(no)){
 				question.set_answer(false);
 				question.set_answered(true);
-				}				
-				else {
-					question.set_answered(false);
-				}
-					
-			
+			}									
 		}
 		
 		// Antworten werden an den Bayescalculator übergeben.
