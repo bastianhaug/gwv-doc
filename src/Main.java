@@ -32,11 +32,16 @@ public class Main {
 			String no = "nein";	
 			if (eingabezeile.equals(yes))
 				question.set_answer(true);
-			if (eingabezeile.equals(no))
+				question.set_answered(true);
+			if (eingabezeile.equals(no)){
 				question.set_answer(false);
-			if (!eingabezeile.equals(yes) && !eingabezeile.equals(no)) {
-				// ToDo: Frage muss erneut gestellt werden, wenn Antwort werder "ja", noch "nein" ist.
-			}
+				question.set_answered(true);
+				}				
+				else {
+					question.set_answered(false);
+				}
+					
+			
 		}
 		
 		// Antworten werden an den Bayescalculator übergeben.

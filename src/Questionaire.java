@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * 
@@ -10,7 +9,7 @@ import java.util.Collection;
  *
  */
 public class Questionaire {
-	private Collection<Question> _questionaire = new ArrayList<Question>();
+	private ArrayList<Question> _questionaire = new ArrayList<Question>();
 	
 	public Questionaire() {
 		Question soreThroat = new Question("soreThroat", "Haben Sie einen rauen Hals?", false);
@@ -27,9 +26,11 @@ public class Questionaire {
 		
 		Question smokes = new Question("smokes", "Rauchen Sie?", false);
 		this._questionaire.add(smokes);
+		
+		
 	}
 	
-	public Collection<Question> get_questionaire() {
+	public ArrayList<Question> get_questionaire() {
 		return this._questionaire;
 	}
 }
