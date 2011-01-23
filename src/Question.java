@@ -3,8 +3,10 @@
  */
 
 /**
+ * Die Question-Klasse bildet eine einzelne Frage ab. Sie kann mit "Ja",
+ * "Nein" oder gar nicht beantwortet werden.
+ * 
  * @author Basti
- *
  */
 public class Question {
 	private String _name;

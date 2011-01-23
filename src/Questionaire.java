@@ -1,12 +1,13 @@
-import java.util.ArrayList;
-
 /**
  * 
  */
+import java.util.ArrayList;
 
 /**
+ * Die Questionaire-Klasse enthält alle Fragen, die dem Nutzer im Fragebogen
+ * gestellt werden sollen.
+ * 
  * @author Basti
- *
  */
 public class Questionaire {
 	private ArrayList<Question> _questionaire = new ArrayList<Question>();

@@ -12,11 +12,12 @@ public class Main {
 	public static void main(String[] args) {
 		
 		// Fragebogen wird durchlaufen
+		System.out.println("Bitte beantworten Sie alle Fragen mit 'Ja' oder 'Nein'." +
+				"Falls Sie die Frage nicht beantworten können, bestätigen Sie bitte nur mit der Eingabetaste.\n");
 		for (Question question : _questionaire.get_questionaire()) {
 
 			// Frage wird gestellt
-			System.out.println(question.get_question() + " (ja/nein) Falls Sie die Frage nicht beantworten können," +
-					"bestätigen Sie bitte nur mit der Eingabetaste.");
+			System.out.println(question.get_question());
 			
 			// Eingabe wird eingelesen
 			String eingabezeile = "";

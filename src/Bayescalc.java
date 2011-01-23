@@ -10,11 +10,40 @@ public class Bayescalc
 		this._questionaire = questionaire;
 	}
 	
+	/**
+	 * Berechnet durch verschiedenene Methoden anhand der in _bayesnetwork 
+	 * gesetzen Wahrscheinlichkeiten und der in _questionaire beantworteten 
+	 * Fragen die entgültige Wahrscheinlichkeit für eine Influenza-Erkrankung.
+	 *
+	 * @return double
+	 */
+	private double calculate() {
+		return (this.calculate_soreThroat() *
+				this.calculate_fever() *
+				this.calculate_bronchitis());
+	}
+
+	/**
+	 * Ruft die Berechnungsfunktion auf und gibt die Wahrscheinlich zurück.
+	 * 
+	 * @return double
+	 */
+	public double get_influenza() {
+		return this.calculate();
+	}	
+	
+	/**
+	 * 
+	 * @return double
+	 */
 	private double calculate_soreThroat() {
+		
+		// Wahrscheinlichkeit, wenn die Frage nicht beantwortet wurde.
 		if (!this._questionaire.get_question("soreThroat").is_answered()) {
 			return 1;
 		}
 		
+		// Wahrscheinlichkeit, wenn die Fragen mit "Ja" beantwortet wurde.
 		if (this._questionaire.get_question("soreThroat").get_answer()) {
 			return (this._bayesnetwork.getSoreThroat().getProp_boundSingle() *
 						this._bayesnetwork.getInfluenza().getProp_true()) /
@@ -22,7 +51,9 @@ public class Bayescalc
 						this._bayesnetwork.getInfluenza().getProp_false() +
 						this._bayesnetwork.getSoreThroat().getProp_boundSingle() *
 						this._bayesnetwork.getInfluenza().getProp_true());
-		} else {
+		} 
+		// Wahrscheinlichkeit, wenn die Fragen mit "Nein" beantwortet wurde.
+		else {
 			return ((1 - this._bayesnetwork.getSoreThroat().getProp_boundSingle()) *
 						this._bayesnetwork.getInfluenza().getProp_true()) /
 					((1- this._bayesnetwork.getSoreThroat().getprop_boundSingle_false()) *
@@ -32,10 +63,18 @@ public class Bayescalc
 		}
 	}
 	
+	/**
+	 * 
+	 * @return double
+	 */
 	private double calculate_fever() {
 		return 1;
 	}
 	
+	/**
+	 * 
+	 * @return double
+	 */
 	private double calculate_smokes_bronchitis() {
 		if (!this._questionaire.get_question("smokes").is_answered()) {
 			return (this._bayesnetwork.getInfluenza().getProp_true() * 
@@ -58,6 +97,10 @@ public class Bayescalc
 		}
 	}
 	
+	/**
+	 * 
+	 * @return double
+	 */
 	private double calculate_bronchitis_coughing() {
 		if (!this._questionaire.get_question("coughing").is_answered()) {
 			return 1;
@@ -76,6 +119,10 @@ public class Bayescalc
 		}
 	}
 	
+	/**
+	 * 
+	 * @return double
+	 */
 	private double calculate_bronchitis_wheezing() {
 		if (!this._questionaire.get_question("wheezing").is_answered()) {
 			return 1;
@@ -88,6 +135,10 @@ public class Bayescalc
 		}
 	}
 	
+	/**
+	 * 
+	 * @return double
+	 */
 	private double calculate_bronchitis() {
 		if (!this._questionaire.get_question("smokes").is_answered() &&
 				!this._questionaire.get_question("coughing").is_answered() &&
@@ -100,23 +151,4 @@ public class Bayescalc
 				this.calculate_bronchitis_wheezing());
 	}
 	
-	/**
-	 * Berechnet anhand der in _bayesnetwork gesetzen Wahrscheinlichkeiten und
-	 * der in _questionaire beantworteten Fragen die entgültige Wahrscheinlichkeit
-	 * für eine Influenza-Erkrankung.
-	 */
-	private double calculate() {
-		return (this.calculate_soreThroat() *
-				this.calculate_fever() *
-				this.calculate_bronchitis());
-	}
-
-	/**
-	 * Ruft die Berechnungsfunktion auf und gibt die Wahrscheinlich zurück.
-	 * 
-	 * @return double
-	 */
-	public double get_influenza() {
-		return this.calculate();
-	}	
 }
